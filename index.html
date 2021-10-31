@@ -6,5 +6,45 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Document</title>
   </head>
-  <body></body>
+  <body>
+    <div id="aplikasi">
+      <h1>Daftar Nama</h1>
+      <input />
+
+      <button id="tambah-nama">+</button>
+      <button id="tombol-clear">/</button>
+    </div>
+
+    <script>
+      // pertama buat element <ol>
+      var olElement = document.createElement("ol");
+
+      // tambahkan ol ke html
+      var divAplikasi = document.getElementById("aplikasi");
+      divAplikasi.appendChild(olElement);
+
+      //cari button kemudian tambahkan event
+      var tombol = document.querySelector("button");
+
+      tombol.addEventListener("click", tambahkanNama);
+      function tambahkanNama() {
+        // isi ol dengan <li>
+        var liElement = document.createElement("li");
+
+        // cari element input
+        var userInput = document.getElementsByTagName("input")[0];
+
+        liElement.innerHTML = userInput.value;
+        olElement.appendChild(liElement);
+      }
+
+      //cari button delete all
+      var hapus = document.getElementById("tombol-clear");
+
+      hapus.addEventListener("click", hapusDaftar);
+      function hapusDaftar() {
+        olElement.innerHTML = "";
+      }
+    </script>
+  </body>
 </html>
